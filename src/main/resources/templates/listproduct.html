@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <a href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></a>
+    <meta http-equiv="Content-Type " content="text/html; charset=UTF-8">
+    <title>Cписок всех товаров</title>
+</head>
+
+<body>
+
+<!--/*@thymesVar id="product" type=""*/-->
+<div>
+    <form  th:action="@{/customers}" th:object="${product}" method="POST"><br/>>
+           <table>
+               <td>
+        <tr th:field = "*{name_product}" >Название продукта</p><br/>
+        <tr th:field ="*{final_price}"> Цена товара</tr>
+               </td>
+           </table>
+    </form>
+</div>
+
+<div>
+    <span>
+  <p>Новенький? Перейди
+      <a th:href = "@{/register}">по ссылке</a>зарегистрироваться.</p>
+    </span>
+</div>
+
+
+
+</body>
+</html>

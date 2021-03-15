@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Панель админки</title>
+    <a href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></a>
+</head>
+
+<body>
+<h1>Admin bar</h1>
+
+    <div>
+        <form th: action="@{/panel}"  method="POST">
+        <input type="text" name="name">
+        <label>Введите имя</label>
+        <input type="text" name="password">
+            <label> Ввести пароль</label>
+        </form>
+    </div>
+
+
+</body>
+</html>

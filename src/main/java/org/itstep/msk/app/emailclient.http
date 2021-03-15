@@ -1,0 +1,7 @@
+POST http://localhost:8083/checkmail
+Content-Type: application/json
+{
+"name" : "Ivan",
+"email" : "ivan@gmail.com",
+"answer" : "it is worked ..."
+}
