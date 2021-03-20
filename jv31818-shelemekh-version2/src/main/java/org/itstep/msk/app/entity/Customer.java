@@ -54,6 +54,7 @@
 
         @Column(name = "password",nullable = false)
         @NotNull
+        @Transient
         private String password;
 
         public String getPassword() {

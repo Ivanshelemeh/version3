@@ -1,7 +1,5 @@
 package org.itstep.msk.app.Configuration;
 
-import org.itstep.msk.app.service.CustomDetailsClass;
-import org.itstep.msk.app.service.CustomerDetailServiceRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +10,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,6 +21,7 @@ import javax.sql.DataSource;
 public class SecurConfigurationForApp extends WebSecurityConfigurerAdapter {
 
         @Autowired
+        @Qualifier("CustomDetails")
         private UserDetailsService userDetailsService;
 
 
@@ -75,12 +73,12 @@ public class SecurConfigurationForApp extends WebSecurityConfigurerAdapter {
                 .antMatchers("/register**").permitAll()
                 .and()
                 .formLogin()
-                    .loginPage("/login")
+                    .loginPage("/login").permitAll()
+                    .usernameParameter("name")
+                .passwordParameter("password")
                         .defaultSuccessUrl("/registersuccess")
                 .failureUrl("/login")
                 .and()
-                .csrf()
-                .disable()
                 .httpBasic();
 
 
